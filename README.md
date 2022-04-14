@@ -2,6 +2,8 @@
 
 ![](https://i.imgur.com/PMm8XQZ.png)
 
+# 功能紀錄
+- 成功將Heroku連結GitHub actions
 # 主題構想版本紀錄
 
 **2022/04/14 V 3.0 員工考勤系統 (聚焦三大功能)**
