@@ -1,0 +1,42 @@
+<%= form_with(model: employee) do |form| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+        <% employee.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-grop">
+    <%= form.label :name, "姓名" %>
+    <%= form.text_field :name,class:"form-control", placeholder:"請填寫姓名"%>
+  </div>
+
+  <div class="field form-grop">
+    <%= form.label :tel, "聯絡電話" %>
+    <%= form.text_field :tel,class:"form-control", placeholder:"請填寫聯絡電話" %>
+  </div>
+
+  <div class="field form-grop">
+    <%= form.label :address, "通訊地址" %>
+    <%= form.text_field :address,class:"form-control", placeholder:"請填寫通訊地址" %>
+  </div>
+
+  <div class="field form-grop">
+    <%= form.label :email, "信箱" %>
+    <%= form.text_field :email,class:"form-control", placeholder:"請填寫個人信箱"%>
+  </div>
+
+  <div class="field form-grop">
+    <%= form.label :employee_number, "員工編號" %>
+    <%= form.text_field :employee_number,class:"form-control", placeholder:"請填寫員工編號" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-warning"%>
+  </div>
+<% end %>

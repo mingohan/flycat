@@ -1,0 +1,37 @@
+<h1>員工列表</h1>
+
+<table class= "table table-bordered table-hover table-striped">
+  <thead class= "thead-dark ">
+    <tr>
+      <th>員工編號</th>
+      <th>名字</th>
+      <th>電話</th>
+      <th>地址</th>
+      <th>Email</th> 
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.employee_number %></td>
+        <td><%= link_to employee.name, employee_path(employee) %></td>
+        <td><%= employee.tel %></td>
+        <td><%= employee.address %></td>
+        <td><%= employee.email %></td>
+        <td>
+        <%= link_to '修改資訊', edit_employee_path(employee) %>
+        </td>
+        <td><%= link_to '刪除資訊', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employee', new_employee_path, class:"btn btn-warning" %>
+|
+<%= link_to 'Back', root_path,class:"btn btn-warning" %>
