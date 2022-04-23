@@ -1,0 +1,26 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+
+        <a class="navbar-item" href="https://bulma.io" >
+        <div class="is-size-1">FlyCat</div>
+        </a>
+    </div>
+
+    <div class="navbar-end">
+        <div class="navbar-item">
+            <div class="buttons">
+
+            <% if user_signed_in? %>
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "button is-primary" %>
+            
+            <% else %>
+            <%= link_to 'Sign up', new_user_registration_path, class: "button is-primary" %>
+        
+            <%= link_to 'Log in', new_user_session_path, class: "button is-light" %>
+            
+            <% end %>
+            </div>
+        </div>
+    </div>
+</nav>
+
