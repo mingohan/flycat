@@ -36,6 +36,10 @@
     <%= form.text_field :employee_number,class:"form-control", placeholder:"請填寫員工編號" %>
   </div>
 
+  <div class="field form-grop">
+    <%= form.number_field :user_id,id: :employee_user_id,class:"form-control", value: current_user.id , type: :hidden%>
+  </div>
+
   <div class="actions">
     <%= form.submit class:"btn btn-warning"%>
   </div>

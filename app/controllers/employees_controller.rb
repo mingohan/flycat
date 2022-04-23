@@ -1,6 +1,7 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, expect: %i[ index show]
+  before_action :correct_user, only: %i[ edit update destroy]
   # GET /employees or /employees.json
   def index
     @employees = Employee.all
@@ -12,7 +13,8 @@ class EmployeesController < ApplicationController
 
   # GET /employees/new
   def new
-    @employee = Employee.new
+    # @employee = Employee.new
+    @employee = current_user.employees.build
   end
 
   # GET /employees/1/edit
@@ -21,7 +23,8 @@ class EmployeesController < ApplicationController
 
   # POST /employees or /employees.json
   def create
-    @employee = Employee.new(employee_params)
+    # @employee = Employee.new(employee_params)
+    @employee = current_user.employees.build(employee_params)
 
     respond_to do |format|
       if @employee.save
@@ -57,6 +60,13 @@ class EmployeesController < ApplicationController
     end
   end
 
+  def correct_user
+    @employee = current_user.employees.find_by(id: params[:id])
+    redirect_to employees_path, notice: "沒有編輯此員工的權限！" if @employee.nil?
+  end
+
+  
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_employee
@@ -65,6 +75,6 @@ class EmployeesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def employee_params
-      params.require(:employee).permit(:name, :tel, :address, :email, :employee_number)
+      params.require(:employee).permit(:name, :tel, :address, :email, :employee_number, :user_id)
     end
 end

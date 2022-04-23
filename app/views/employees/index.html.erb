@@ -8,6 +8,7 @@
       <th>電話</th>
       <th>地址</th>
       <th>Email</th> 
+      <th>User_id</th>
       <th>Edit</th>
       <th>Destroy</th>
     </tr>
@@ -21,6 +22,7 @@
         <td><%= employee.tel %></td>
         <td><%= employee.address %></td>
         <td><%= employee.email %></td>
+        <td><%= employee.user_id %></td>
         <td>
         <%= link_to '修改資訊', edit_employee_path(employee) %>
         </td>
