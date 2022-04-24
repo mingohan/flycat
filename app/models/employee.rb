@@ -6,3 +6,4 @@ class Employee < ApplicationRecord
     validates :employee_number ,presence: true, uniqueness: true
     belongs_to :user
 end
+        

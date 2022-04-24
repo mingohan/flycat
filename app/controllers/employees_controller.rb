@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, expect: %i[ index show]
+  before_action :authenticate_user!, except: %i[ index show]
   before_action :correct_user, only: %i[ edit update destroy]
   # GET /employees or /employees.json
   def index
