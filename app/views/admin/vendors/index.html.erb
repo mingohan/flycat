@@ -1,0 +1,17 @@
+</br>
+</br>
+<div class="card">
+  <div class="card-header">
+    <h2>廠商列表</h2>
+  </div>
+  <div class="card-body">
+    <ul>
+        <%= render partial: 'vendor', collection: @vendors %>
+    </ul>
+    <%= link_to "新增廠商", new_admin_vendor_path %>
+  </div>
+</div>
+
+
+
+
