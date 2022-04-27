@@ -1,7 +1,6 @@
 ## Issue Link
 
-
-https://trello.com/b/9blkAdW3/(在這填上票號)
+https://github.com/mingohan/flycat/issues/(在這填上票號)
 
 ## Changes
 
